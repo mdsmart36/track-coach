@@ -1,0 +1,68 @@
+
+<div ng-controller="athleteController">
+  <h1 class="text-center">{{welcome}}</h1>
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-12">
+            <div class="col-xs-4">
+              <h2>Athlete Info</h2>
+              <label class="control-label">First name</label>
+              <input type="text" name="firstName" ng-model="athlete.athlete.firstName" ng-change="list.$save(editKey)" class="form-control"/>
+              <label class="control-label">Last name</label>
+              <input type="text" name="lastName" ng-model="athlete.athlete.lastName" class="form-control"/>
+              <label class="control-label">Email</label>
+              <input type="email" name="athleteEmail" ng-model="athlete.athlete.email" class="form-control"/>
+              <label class="control-label">Contact #</label>
+              <input type="tel" name="athleteNumber" ng-model="athlete.athlete.phoneNumber" class="form-control"/>
+              <div class="col-xs-6">
+                <label class="control-label">DOB</label>
+                <input type="date" name="athleteDOB" ng-model="athlete.athlete.dob" class="form-control"/>
+              </div>
+              <div class="col-xs-6">
+                <label class="control-label">Gender</label>
+                <input type="text" name="athleteGender" ng-model="athlete.athlete.gender" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <h2>Primary Contact Info</h2>
+              <label class="control-label">First name</label>
+              <input type="text" name="pcFirstName" ng-model="athlete.primaryContact.firstName" class="form-control"/>
+              <label class="control-label">Last name</label>
+              <input type="text" name="pcLastName" ng-model="athlete.primaryContact.lastName" class="form-control"/>
+              <label class="control-label">Email</label>
+              <input type="email" name="pcEmail" ng-model="athlete.primaryContact.email" class="form-control"/>
+              <label class="control-label">Contact #</label>
+              <input type="tel" name="pcNumber" ng-model="athlete.primaryContact.phoneNumber" class="form-control"/>
+            </div>
+            <div class="col-xs-4">
+              <h2>Secondary Contact Info</h2>
+              <label class="control-label">First name</label>
+              <input type="text" name="scFirstName" ng-model="athlete.secondaryContact.firstName" class="form-control"/>
+              <label class="control-label">Last name</label>
+              <input type="text" name="scLastName" ng-model="athlete.secondaryContact.lastName" class="form-control"/>
+              <label class="control-label">Email</label>
+              <input type="email" name="scEmail" ng-model="athlete.secondaryContact.email" class="form-control"/>
+              <label class="control-label">Contact #</label>
+              <input type="tel" name="scNumber" ng-model="athlete.secondaryContact.phoneNumber" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-10">
+            <label class="control-label">Medical Issues</label>
+            <textarea ng-model="athlete.medical" class="form-control"></textarea>
+            <label class="control-label">Notes</label>
+            <textarea ng-model="athlete.notes" class="form-control"></textarea>
+            <label class="control-label">Waiver Signed?</label>
+            <input type="checkbox" ng-model="athlete.waiver"/>
+            <button ng-click="done()" class="btn">Done</button>
+          </div>
+          <div class="col-xs-1"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

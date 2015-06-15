@@ -1,0 +1,53 @@
+h1.text-center {{welcome}}
+.row
+  .col-xs-12
+    form.form-horizontal
+      .form-group
+        .col-xs-12
+          .col-xs-4
+            h2 Athlete Info
+            label.control-label First name
+            input.form-control(type='text', name='firstName', ng-model='athlete.athlete.firstName')
+            label.control-label Last name
+            input.form-control(type='text', name='lastName', ng-model='athlete.athlete.lastName')
+            label.control-label Email
+            input.form-control(type='email', name='athleteEmail', ng-model='athlete.athlete.email')
+            label.control-label Contact #
+            input.form-control(type='tel', name='athleteNumber', ng-model='athlete.athlete.phoneNumber')
+            .col-xs-6
+              label.control-label DOB
+              input.form-control(type='date', name='athleteDOB', ng-model='athlete.athlete.dob')
+            .col-xs-6
+              label.control-label Gender
+              input.form-control(type='text', name='athleteGender', ng-model='athlete.athlete.gender')
+          .col-xs-4
+            h2 Primary Contact Info
+            label.control-label First name
+            input.form-control(type='text', name='pcFirstName', ng-model='athlete.primaryContact.firstName')
+            label.control-label Last name
+            input.form-control(type='text', name='pcLastName', ng-model='athlete.primaryContact.lastName')
+            label.control-label Email
+            input.form-control(type='email', name='pcEmail', ng-model='athlete.primaryContact.email')
+            label.control-label Contact #
+            input.form-control(type='tel', name='pcNumber', ng-model='athlete.primaryContact.phoneNumber')
+          .col-xs-4
+            h2 Secondary Contact Info
+            label.control-label First name
+            input.form-control(type='text', name='scFirstName', ng-model='athlete.secondaryContact.firstName')
+            label.control-label Last name
+            input.form-control(type='text', name='scLastName', ng-model='athlete.secondaryContact.lastName')
+            label.control-label Email
+            input.form-control(type='email', name='scEmail', ng-model='athlete.secondaryContact.email')
+            label.control-label Contact #
+            input.form-control(type='tel', name='scNumber', ng-model='athlete.secondaryContact.phoneNumber')
+      .form-group
+        .col-xs-1
+        .col-xs-10
+          label.control-label Medical Issues
+          textarea.form-control(ng-model='athlete.medical')
+          label.control-label Notes
+          textarea.form-control(ng-model='athlete.notes')
+          label.control-label Waiver Signed?
+          input(type='checkbox', ng-model='athlete.waiver')
+          button.btn(ng-click='submit(athlete)') Save
+        .col-xs-1

@@ -1,0 +1,26 @@
+div(ng-controller='viewAthletesController')
+  h1.text-center {{welcome}}
+  .row
+    .col-md-12
+      table.table.table-hover
+        tbody
+          tr
+            th First Name
+            th Last Name
+            th Email
+            th Contact #
+            th DOB
+            th Gender
+            th
+            th
+          tr(ng-repeat='student in list')
+            td {{student.athlete.firstName}}
+            td {{student.athlete.lastName}}
+            td {{student.athlete.email}}
+            td {{student.athlete.phoneNumber}}
+            td {{student.athlete.dob | date:"MM/dd/yyyy"}}
+            td {{student.athlete.gender}}
+            td
+              button.btn.btn-default.btn-xs.btn-success(type='button', ng-click='edit($index)') Edit
+            td
+              button.btn.btn-default.btn-xs.btn-danger(type='button', ng-click='remove($index)') Remove
