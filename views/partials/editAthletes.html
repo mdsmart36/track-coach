@@ -1,13 +1,13 @@
 
 <div ng-controller="athleteController">
-  <h1 class="text-center">{{welcome}}</h1>
+  <h1 class="text-center">{{welcome2}}</h1>
   <div class="row">
     <div class="col-xs-12">
       <form class="form-horizontal">
         <div class="form-group">
           <div class="col-xs-12">
             <div class="col-xs-4">
-              <h2>Athlete Info</h2>
+              <h2 class="text-center">Athlete Info</h2>
               <label class="control-label">First name</label>
               <input type="text" name="firstName" ng-model="athlete.athlete.firstName" ng-change="list.$save(editKey)" class="form-control"/>
               <label class="control-label">Last name</label>
@@ -26,7 +26,7 @@
               </div>
             </div>
             <div class="col-xs-4">
-              <h2>Primary Contact Info</h2>
+              <h2 class="text-center">Primary Contact Info</h2>
               <label class="control-label">First name</label>
               <input type="text" name="pcFirstName" ng-model="athlete.primaryContact.firstName" class="form-control"/>
               <label class="control-label">Last name</label>
@@ -37,7 +37,7 @@
               <input type="tel" name="pcNumber" ng-model="athlete.primaryContact.phoneNumber" class="form-control"/>
             </div>
             <div class="col-xs-4">
-              <h2>Secondary Contact Info</h2>
+              <h2 class="text-center">Secondary Contact Info</h2>
               <label class="control-label">First name</label>
               <input type="text" name="scFirstName" ng-model="athlete.secondaryContact.firstName" class="form-control"/>
               <label class="control-label">Last name</label>
@@ -58,7 +58,7 @@
             <textarea ng-model="athlete.notes" class="form-control"></textarea>
             <label class="control-label">Waiver Signed?</label>
             <input type="checkbox" ng-model="athlete.waiver"/>
-            <button ng-click="done()" class="btn">Done</button>
+            <button ng-show="$scope.editKey != -1" ng-click="done()" class="btn btn-default">Done</button>
           </div>
           <div class="col-xs-1"></div>
         </div>

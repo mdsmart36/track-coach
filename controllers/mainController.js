@@ -33,6 +33,7 @@ app.config(function ($routeProvider) {
     }).
         when('/athletes/edit', {
       templateUrl: 'views/partials/editAthletes.html',
+      // templateUrl: 'views/partials/athletes.html',
       controllers: 'athleteController'
     }).
     when('/results/add', {
@@ -61,4 +62,5 @@ app.service('myService', function(){
   this.editTask = {};
   this.editKey = -1;
   this.listRef = null;
+  // this.dateObject = new Date();
 });

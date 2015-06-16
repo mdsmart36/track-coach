@@ -1,12 +1,12 @@
 div(ng-controller='athleteController')
-  h1.text-center {{welcome}}
+  h1.text-center {{welcome2}}
   .row
     .col-xs-12
       form.form-horizontal
         .form-group
           .col-xs-12
             .col-xs-4
-              h2 Athlete Info
+              h2.text-center Athlete Info
               label.control-label First name
               input.form-control(type='text', name='firstName', ng-model='athlete.athlete.firstName', ng-change='list.$save(editKey)')
               label.control-label Last name
@@ -22,7 +22,7 @@ div(ng-controller='athleteController')
                 label.control-label Gender
                 input.form-control(type='text', name='athleteGender', ng-model='athlete.athlete.gender')
             .col-xs-4
-              h2 Primary Contact Info
+              h2.text-center Primary Contact Info
               label.control-label First name
               input.form-control(type='text', name='pcFirstName', ng-model='athlete.primaryContact.firstName')
               label.control-label Last name
@@ -32,7 +32,7 @@ div(ng-controller='athleteController')
               label.control-label Contact #
               input.form-control(type='tel', name='pcNumber', ng-model='athlete.primaryContact.phoneNumber')
             .col-xs-4
-              h2 Secondary Contact Info
+              h2.text-center Secondary Contact Info
               label.control-label First name
               input.form-control(type='text', name='scFirstName', ng-model='athlete.secondaryContact.firstName')
               label.control-label Last name
@@ -50,5 +50,5 @@ div(ng-controller='athleteController')
             textarea.form-control(ng-model='athlete.notes')
             label.control-label Waiver Signed?
             input(type='checkbox', ng-model='athlete.waiver')
-            button.btn(ng-click='done()') Done
+            button.btn.btn-default(ng-show='$scope.editKey != -1', ng-click='done()') Done
           .col-xs-1

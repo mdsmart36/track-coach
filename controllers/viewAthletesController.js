@@ -18,8 +18,10 @@ app.controller('viewAthletesController', [
     // change DOB from milliseconds to Date object
     var convertedDate = new Date();
     convertedDate.setTime($scope.list[key].athlete.dob);
+    // var convertedDate = new Date().setTime($scope.list[key].athlete.dob);
     
     myService.editTask.athlete.dob = convertedDate;
+    // myService.dateObject = convertedDate;
     myService.editKey = key;
     myService.listRef = $scope.list;
     $location.path('/athletes/edit');
