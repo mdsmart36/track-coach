@@ -4,21 +4,19 @@
   <div class="col-xs-1"></div>
   <div class="col-xs-3">
     <form class="form-horizontal">
-      <button ng-click="showLoginBtn()" class="btn btn-default">Login</button>
-      <button ng-click="showRegisterBtn()" class="btn btn-default">Register</button>
       <div ng-show="showLogin" class="form-group">
         <label class="control-label">Email</label>
         <input type="email" name="userEmail" ng-model="user.email" class="form-control"/>
         <label class="control-label">Password</label>
         <input type="password" name="userEmail" ng-model="user.password" class="form-control"/>
-        <button class="btn btn-default">Login Now</button>
+        <button ng-click="login()" class="btn btn-default">Login</button><span>&nbsp;&nbsp;&nbsp;</span><a ng-click="showRegisterBtn()">Register</a>
       </div>
       <div ng-show="showRegister" class="form-group">
         <label class="control-label">Email</label>
         <input type="email" name="userEmail" ng-model="user.email" class="form-control"/>
         <label class="control-label">Password</label>
         <input type="password" name="userEmail" ng-model="user.password" class="form-control"/>
-        <button ng-click="register()" class="btn btn-default">Register Now</button>
+        <button ng-click="register()" class="btn btn-default">Register</button><span>&nbsp;&nbsp;&nbsp;</span><a ng-click="showLoginBtn()">Login</a>
       </div>
     </form>
   </div>

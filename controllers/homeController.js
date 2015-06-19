@@ -6,8 +6,6 @@ app.controller('homeController', ['$scope', function($scope) {
 
   var ref = new Firebase("https://track-coach.firebaseio.com");
 
-  
-
   $scope.showLoginBtn = function(){
     $scope.showRegister = false;
     $scope.showLogin = true;    
@@ -19,7 +17,16 @@ app.controller('homeController', ['$scope', function($scope) {
   }
 
   $scope.login = function() {
-
+    ref.authWithPassword({
+      email    : $scope.user.email,
+      password : $scope.user.password
+    }, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+      }
+    });
   }
 
   $scope.register = function() {

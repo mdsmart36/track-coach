@@ -6,16 +6,16 @@
       <table class="table table-hover">
         <tbody>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th> <a href="" ng-click="order('athlete.firstName')">First Name</a></th>
+            <th> <a href="" ng-click="order('athlete.lastName')">Last Name</a></th>
+            <th><a href="" ng-click="order('athlete.email')"> Email</a></th>
             <th>Contact #</th>
-            <th>DOB</th>
+            <th> <a href="" ng-click="order('athlete.dob')">DOB</a></th>
             <th>Gender</th>
             <th></th>
             <th></th>
           </tr>
-          <tr ng-repeat="student in list">
+          <tr ng-repeat="student in list | orderBy:predicate:reverse">
             <td>{{student.athlete.firstName}}</td>
             <td>{{student.athlete.lastName}}</td>
             <td>{{student.athlete.email}}</td>
@@ -23,7 +23,7 @@
             <td>{{student.athlete.dob | date:"MM/dd/yyyy"}}</td>
             <td>{{student.athlete.gender}}</td>
             <td>
-              <button type="button" ng-click="edit($index)" class="btn btn-default btn-xs btn-success">Edit</button>
+              <button type="button" ng-click="edit(student.$id)" class="btn btn-default btn-xs btn-success">Edit</button>
             </td>
             <td>
               <button type="button" ng-click="remove($index)" class="btn btn-default btn-xs btn-danger">Remove</button>

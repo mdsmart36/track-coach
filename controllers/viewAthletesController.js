@@ -7,22 +7,35 @@ app.controller('viewAthletesController', [
   $scope.welcome = "Welcome to Athlete View / Edit page";
   $scope.editOn = -1;
 
+  // initialize sorting functions
+  $scope.predicate = 'athlete.lastName';
+  $scope.reverse = true;
+  $scope.order = function(predicate) {
+    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+    $scope.predicate = predicate;
+  };
+
   // Get a database reference to our posts
   var ref = new Firebase('https://track-coach.firebaseIO.com/athletes');
   $scope.list = $firebaseArray(ref);
 
   $scope.edit = function(key) {
     // pass data to another controller through an Angular service
-    myService.editTask = $scope.list[key];
+
+    // get index for edit item
+    var index = -1;
+    do {
+      index++;
+    } while ($scope.list[index].$id !== key)
+
+    myService.editTask = $scope.list[index];
 
     // change DOB from milliseconds to Date object
     var convertedDate = new Date();
-    convertedDate.setTime($scope.list[key].athlete.dob);
-    // var convertedDate = new Date().setTime($scope.list[key].athlete.dob);
+    convertedDate.setTime($scope.list[index].athlete.dob);
     
     myService.editTask.athlete.dob = convertedDate;
-    // myService.dateObject = convertedDate;
-    myService.editKey = key;
+    myService.editKey = index;
     myService.listRef = $scope.list;
     $location.path('/athletes/edit');
   }

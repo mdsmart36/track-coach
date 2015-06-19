@@ -5,15 +5,19 @@ div(ng-controller='viewAthletesController')
       table.table.table-hover
         tbody
           tr
-            th First Name
-            th Last Name
-            th Email
+            th 
+              a(href="", ng-click="order('athlete.firstName')") First Name
+            th 
+              a(href="", ng-click="order('athlete.lastName')") Last Name
+            th
+              a(href="", ng-click="order('athlete.email')")  Email
             th Contact #
-            th DOB
+            th 
+              a(href="", ng-click="order('athlete.dob')") DOB
             th Gender
             th
             th
-          tr(ng-repeat='student in list')
+          tr(ng-repeat='student in list | orderBy:predicate:reverse')
             td {{student.athlete.firstName}}
             td {{student.athlete.lastName}}
             td {{student.athlete.email}}
@@ -21,6 +25,6 @@ div(ng-controller='viewAthletesController')
             td {{student.athlete.dob | date:"MM/dd/yyyy"}}
             td {{student.athlete.gender}}
             td
-              button.btn.btn-default.btn-xs.btn-success(type='button', ng-click='edit($index)') Edit
+              button.btn.btn-default.btn-xs.btn-success(type='button', ng-click='edit(student.$id)') Edit
             td
               button.btn.btn-default.btn-xs.btn-danger(type='button', ng-click='remove($index)') Remove
