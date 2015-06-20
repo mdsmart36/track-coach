@@ -53,16 +53,19 @@ app.config(function ($routeProvider) {
     }).
         when('/athletes/edit', {
       templateUrl: 'views/partials/editAthletes.html',
-      // templateUrl: 'views/partials/athletes.html',
       controllers: 'athleteController'
     }).
     when('/results/add', {
-      templateUrl: 'views/partials/addResults.html',
-      controller: 'addResultsController'
+      templateUrl: 'views/partials/results.html',
+      controller: 'resultsController'
     }).
     when('/results/view', {
       templateUrl: 'views/partials/viewResults.html',
       controller: 'viewResultsController'
+    }).
+    when('/results/edit', {
+      templateUrl: 'views/partials/editResults.html',
+      controller: 'resultsController'
     }).
     when('/workouts', {
       templateUrl: 'views/partials/workouts.html',

@@ -1,0 +1,33 @@
+
+<h1 class="text-center">{{welcome}}</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" placeholder="First Name" size="10" ng-model="result.firstName" class="form-control"/>
+        <input type="text" placeholder="Last Name" size="10" ng-model="result.lastName" class="form-control"/>
+        <select class="form-control">
+          <option ng-repeat="person in names">{{person}}</option>
+        </select>
+        <input type="date" placeholder="Date" size="10" ng-model="result.date" class="form-control"/>
+        <input type="text" placeholder="Meet" size="10" ng-model="result.meet" class="form-control"/>
+        <input type="text" placeholder="Event" size="10" ng-model="result.event" class="form-control"/>
+        <input type="text" placeholder="Mins" size="3" ng-model="result.mins" class="form-control"/>
+        <input type="text" placeholder="Secs" size="3" ng-model="result.sec" class="form-control"/>
+        <input type="text" placeholder="Hund" size="3" ng-model="result.hund" class="form-control"/>
+      </div>
+    </form>
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" placeholder="First Name" size="10" ng-model="result.firstName" class="form-control"/>
+        <input type="text" placeholder="Last Name" size="10" ng-model="result.lastName" class="form-control"/>
+        <input type="date" placeholder="Date" size="10" ng-model="result.date" class="form-control"/>
+        <input type="text" placeholder="Meet" size="10" ng-model="result.meet" class="form-control"/>
+        <input type="text" placeholder="Event" size="10" ng-model="result.event" class="form-control"/>
+        <input type="text" placeholder="Feet" size="3" ng-model="result.feet" class="form-control"/>
+        <input type="text" placeholder="Inches" size="3" ng-model="result.inch" class="form-control"/>
+        <input type="text" placeholder="Part-Inches" size="3" ng-model="result.partinch" class="form-control"/>
+      </div>
+    </form>
+  </div>
+</div>
