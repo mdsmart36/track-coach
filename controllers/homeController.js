@@ -1,8 +1,11 @@
-app.controller('homeController', ['$scope', function($scope) {
+app.controller('homeController', ['$scope', '$rootScope', '$location', 
+  function($scope, $rootScope, $location) {
+  
   $scope.welcome = "Welcome to Track Coach / Login and Registration";
   $scope.showRegister = false;
   $scope.showLogin = true;
   $scope.user = {};
+  $rootScope.loggedIn = false;
 
   var ref = new Firebase("https://track-coach.firebaseio.com");
 
@@ -25,6 +28,8 @@ app.controller('homeController', ['$scope', function($scope) {
         console.log("Login Failed!", error);
       } else {
         console.log("Authenticated successfully with payload:", authData);
+        $rootScope.loggedIn = true;
+        $location.path('/team');
       }
     });
   }

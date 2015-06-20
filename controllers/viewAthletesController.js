@@ -5,7 +5,6 @@ app.controller('viewAthletesController', [
   '$location', function($scope, $firebaseArray, myService, $location) {
   
   $scope.welcome = "Welcome to Athlete View / Edit page";
-  // $scope.editOn = -1;
 
   // initialize sorting functions
   $scope.predicate = 'athlete.lastName';
@@ -19,15 +18,18 @@ app.controller('viewAthletesController', [
   var ref = new Firebase('https://track-coach.firebaseIO.com/athletes');
   $scope.list = $firebaseArray(ref);
 
-  $scope.edit = function(key) {
-    // pass data to another controller through an Angular service
-
-    // get index for edit item
+  function getIndex(key) {
     var index = -1;
     do {
       index++;
     } while ($scope.list[index].$id !== key)
+    return index;
+  }
 
+  $scope.edit = function(key) {
+    // pass data to another controller through an Angular service
+
+    var index = getIndex(key);
     myService.editTask = $scope.list[index];
 
     // change DOB from milliseconds to Date object
@@ -43,15 +45,9 @@ app.controller('viewAthletesController', [
   $scope.remove = function(key) {
     // WARN USER: This cannot be undone
     // OR give user the option to restore
-    // console.log(key);
-    // get index for remove item
-    var index = -1;
-    do {
-      index++;
-      // console.log(index);
-    } while ($scope.list[index].$id !== key)
 
-    // console.log(index);
+    // get index for remove item
+    var index = getIndex(key);
     $scope.list.$remove(index);
   }
     

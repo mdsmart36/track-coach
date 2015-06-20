@@ -1,20 +1,40 @@
 var app = angular.module('TrackCoach', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
-app.controller('navController', function($scope, $log) {
-  
-    $scope.status = {
-      isopen: false
-    };
+app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope, $location) {
 
-    $scope.toggled = function(open) {
-      $log.log('Dropdown is now: ', open);
-    };
+  var ref = new Firebase("https://track-coach.firebaseio.com");
+  $scope.authObj = $firebaseAuth(ref);
+  $rootScope.loggedIn = false;
 
-    $scope.toggleDropdown = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-      $scope.status.isopen = !$scope.status.isopen;
-    };
+  $scope.authObj.$onAuth(function(authData) {
+    if (authData) {
+      console.log("Logged in as:", authData.uid);
+      $rootScope.loggedIn = true;
+
+    } else {
+      console.log("Logged out");
+      $rootScope.loggedIn = false;
+    }
+  });
+
+  $scope.logout = function(){
+    $scope.authObj.$unauth();
+    $location.path('/');
+  };
+
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    $log.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
 });
 
 app.config(function ($routeProvider) {

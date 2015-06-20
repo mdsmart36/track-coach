@@ -21,8 +21,8 @@
           <a class='navbar-brand' href="/">Track Coach</a>
         </div>
         <ul class='nav navbar-nav'>
-          <li><a href="/#/">Home</a></li>
-          <li class='dropdown' dropdown on-toggle='toggled(open)'>
+          <li ng-show='!loggedIn'><a href="/#/">Login / Register</a></li>
+          <li class='dropdown' dropdown on-toggle='toggled(open)' ng-show='loggedIn'>
             <a href class='dropdown-toggle' dropdown-toggle >Athletes<span class='caret'></span></a>
             <ul class='dropdown-menu'>
               <li><a href="/#/athletes/add">Add Athlete</a></li>
@@ -30,7 +30,7 @@
               <li class='divider'></li>
             </ul>
           </li>
-          <li class='dropdown' dropdown on-toggle='toggled(open)'>
+          <li class='dropdown' dropdown on-toggle='toggled(open)' ng-show='loggedIn'>
             <a href class='dropdown-toggle' dropdown-toggle >Results<span class='caret'></span></a>
             <ul class='dropdown-menu'>
               <li><a href="/#/results/add">Add Results</a></li>
@@ -38,12 +38,13 @@
               <li class='divider'></li>
             </ul>
           </li>
-          <li><a href="/#/workouts">Workouts</a></li>
-          <li><a href="/#/team">Team</a></li>
+          <li ng-show='loggedIn'><a href="/#/workouts">Workouts</a></li>
+          <li ng-show='loggedIn'><a href="/#/team">Team</a></li>
+          <li ng-show='loggedIn'><a href="" ng-click='logout()'>Logout</a></li>
         </ul>
       </div>
     </nav>
-
+    
     <div ng-view>    
     </div>
     
