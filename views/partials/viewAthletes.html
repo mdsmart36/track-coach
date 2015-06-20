@@ -10,7 +10,8 @@
             <th> <a href="" ng-click="order('athlete.lastName')">Last Name</a></th>
             <th><a href="" ng-click="order('athlete.email')"> Email</a></th>
             <th>Contact #</th>
-            <th> <a href="" ng-click="order('athlete.dob')">DOB</a></th>
+            <th>DOB
+            </th>
             <th>Gender</th>
             <th></th>
             <th></th>
@@ -26,7 +27,7 @@
               <button type="button" ng-click="edit(student.$id)" class="btn btn-default btn-xs btn-success">Edit</button>
             </td>
             <td>
-              <button type="button" ng-click="remove($index)" class="btn btn-default btn-xs btn-danger">Remove</button>
+              <button type="button" ng-click="remove(student.$id)" class="btn btn-default btn-xs btn-danger">Remove</button>
             </td>
           </tr>
         </tbody>

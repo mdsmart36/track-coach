@@ -12,8 +12,8 @@ div(ng-controller='viewAthletesController')
             th
               a(href="", ng-click="order('athlete.email')")  Email
             th Contact #
-            th 
-              a(href="", ng-click="order('athlete.dob')") DOB
+            th DOB
+              //- a(href="", ng-click="order('athlete.dob')") DOB
             th Gender
             th
             th
@@ -27,4 +27,4 @@ div(ng-controller='viewAthletesController')
             td
               button.btn.btn-default.btn-xs.btn-success(type='button', ng-click='edit(student.$id)') Edit
             td
-              button.btn.btn-default.btn-xs.btn-danger(type='button', ng-click='remove($index)') Remove
+              button.btn.btn-default.btn-xs.btn-danger(type='button', ng-click='remove(student.$id)') Remove

@@ -5,7 +5,7 @@ app.controller('viewAthletesController', [
   '$location', function($scope, $firebaseArray, myService, $location) {
   
   $scope.welcome = "Welcome to Athlete View / Edit page";
-  $scope.editOn = -1;
+  // $scope.editOn = -1;
 
   // initialize sorting functions
   $scope.predicate = 'athlete.lastName';
@@ -43,7 +43,16 @@ app.controller('viewAthletesController', [
   $scope.remove = function(key) {
     // WARN USER: This cannot be undone
     // OR give user the option to restore
-    $scope.list.$remove(key);
+    // console.log(key);
+    // get index for remove item
+    var index = -1;
+    do {
+      index++;
+      // console.log(index);
+    } while ($scope.list[index].$id !== key)
+
+    // console.log(index);
+    $scope.list.$remove(index);
   }
     
 }]);
