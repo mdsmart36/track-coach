@@ -5,23 +5,28 @@ h1.text-center {{welcome}}
   .col-xs-12
     form.form-inline
       .form-group
-        input.form-control(type='text', placeholder='First Name', size='10', ng-model='result.firstName')
-        input.form-control(type='text', placeholder='Last Name', size='10', ng-model='result.lastName')
-        select.form-control
+        //- input.form-control(type='text', placeholder='First Name', size='10', ng-model='result.firstName')
+        //- input.form-control(type='text', placeholder='Last Name', size='10', ng-model='result.lastName')
+        select.form-control(ng-model='result.fullName', autofocus=true)
           option(ng-repeat='person in names') {{person}}
-        input.form-control(type='date', placeholder='Date', size='10', ng-model='result.date')
-        input.form-control(type='text', placeholder='Meet', size='10', ng-model='result.meet')
-        input.form-control(type='text', placeholder='Event', size='10', ng-model='result.event')
-        input.form-control(type='text', placeholder='Mins', size='3', ng-model='result.mins')
-        input.form-control(type='text', placeholder='Secs', size='3', ng-model='result.sec')
-        input.form-control(type='text', placeholder='Hund', size='3', ng-model='result.hund')
-    form.form-inline
-      .form-group
-        input.form-control(type='text', placeholder='First Name', size='10', ng-model='result.firstName')
-        input.form-control(type='text', placeholder='Last Name', size='10', ng-model='result.lastName')
-        input.form-control(type='date', placeholder='Date', size='10', ng-model='result.date')
-        input.form-control(type='text', placeholder='Meet', size='10', ng-model='result.meet')
-        input.form-control(type='text', placeholder='Event', size='10', ng-model='result.event')
-        input.form-control(type='text', placeholder='Feet', size='3', ng-model='result.feet')
-        input.form-control(type='text', placeholder='Inches', size='3', ng-model='result.inch')
-        input.form-control(type='text', placeholder='Part-Inches', size='3', ng-model='result.partinch')
+        input.form-control(type='date', placeholder='yyyy-MM-dd', ng-model='result.date', required)
+        input.form-control(type='text', placeholder='Meet', size='20', ng-model='result.meet')
+        //- input.form-control(type='text', placeholder='Event', size='10', ng-model='result.event')
+        select.form-control(ng-model='result.event')
+          option(ng-repeat='event in events') {{event}}
+        label.control-label Result
+        input.form-control(type='text', placeholder='1', size='3', ng-model='result.part1')
+        input.form-control(type='text', placeholder='2', size='3', ng-model='result.part2')
+        input.form-control(type='text', placeholder='3', size='3', ng-model='result.part3')
+        button.btn.btn-default(ng-click='submit(result)') Save
+    
+    //- form.form-inline
+    //-   .form-group
+    //-     input.form-control(type='text', placeholder='First Name', size='10', ng-model='result.firstName')
+    //-     input.form-control(type='text', placeholder='Last Name', size='10', ng-model='result.lastName')
+    //-     input.form-control(type='date', placeholder='Date', size='10', ng-model='result.date')
+    //-     input.form-control(type='text', placeholder='Meet', size='10', ng-model='result.meet')
+    //-     input.form-control(type='text', placeholder='Event', size='10', ng-model='result.event')
+    //-     input.form-control(type='text', placeholder='Feet', size='3', ng-model='result.feet')
+    //-     input.form-control(type='text', placeholder='Inches', size='3', ng-model='result.inch')
+    //-     input.form-control(type='text', placeholder='Part-Inches', size='3', ng-model='result.partinch')

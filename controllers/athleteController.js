@@ -16,19 +16,14 @@ app.controller('athleteController', ['$scope', 'myService', '$firebaseArray', '$
   }
 
   $scope.submit = function(athlete, $firebaseArray) {
-    var dob = $scope.athlete.athlete.dob.getTime().toString(); // convert DOB to milliseconds
-
-    // console.log($scope.athlete.athlete.dob.toString());
-    // console.log(typeof $scope.athlete.athlete.dob.toString());
-
-    // var dob = $scope.dateObject.getTime().toString();
+    var dob = $scope.athlete.athlete.dob.getTime();//.toString(); // convert DOB to milliseconds
     $scope.athlete.athlete.dob = dob; // assign to athlete object
     $scope.list.$add(athlete); // save object to athlete array
     $scope.athlete = {}; // clear object
   };
 
   $scope.done = function($firebaseArray) {    
-    var dob = $scope.athlete.athlete.dob.getTime().toString(); // convert DOB to milliseconds
+    var dob = $scope.athlete.athlete.dob.getTime();//.toString(); // convert DOB to milliseconds
     $scope.athlete.athlete.dob = dob; // assign to athlete object
     $scope.list.$save($scope.editKey); // update athlete object in athlete array
     
