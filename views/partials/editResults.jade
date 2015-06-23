@@ -1,0 +1,16 @@
+h1.text-center {{welcome}}
+.row
+  .col-xs-12
+    form.form-inline
+      .form-group
+        select.form-control(ng-model='result.fullName', autofocus=true)
+          option(ng-repeat='person in names') {{person}}
+        input.form-control(type='date', placeholder='yyyy-MM-dd', ng-model='result.date', required)
+        input.form-control(type='text', placeholder='Meet', size='20', ng-model='result.meet')
+        select.form-control(ng-model='result.event')
+          option(ng-repeat='event in events') {{event}}
+        label.control-label Result
+        input.form-control(type='text', placeholder='1', size='3', ng-model='result.part1')
+        input.form-control(type='text', placeholder='2', size='3', ng-model='result.part2')
+        input.form-control(type='text', placeholder='3', size='3', ng-model='result.part3')
+        button.btn.btn-default(ng-click='done(result)') Done

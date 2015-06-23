@@ -7,7 +7,7 @@ app.controller('viewResultsController', [
   $scope.welcome = "Welcome to View Results page";
   
   // initialize sorting functions
-  $scope.predicate = 'result.lastName';
+  $scope.predicate = 'fullName';
   $scope.reverse = true;
   $scope.order = function(predicate) {
     $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
@@ -17,6 +17,28 @@ app.controller('viewResultsController', [
   // Get a database reference to our posts
   var ref = new Firebase('https://track-coach.firebaseIO.com/results');
   $scope.list = $firebaseArray(ref);
+
+  var fieldEvents = ['LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault'];
+  $scope.resultsArray = [];
+
+  // when results list is loaded, populate a new resultsArray with string values
+  $scope.list.$loaded().then(function(){
+    for (var i = 0; i < $scope.list.length; i++) {
+      var result = $scope.list[i];
+      var part1 = result.part1;
+      var part2 = result.part2;
+      var part3 = result.part3;
+
+      if (fieldEvents.indexOf(result.event) === -1) {
+      // running event, convert result to time string
+        $scope.list[i].resultString = part1 + ":" + part2 + "." + part3;
+      } else {
+      // jumping event, convert result to distance string
+        $scope.list[i].resultString = part1 + "\' " + part2 + "." + part3 + "\""
+      }
+      // console.log(resultsArray[i]);
+    }
+  });
 
   function getIndex(key) {
     var index = -1;
@@ -34,9 +56,9 @@ app.controller('viewResultsController', [
 
     // change DOB from milliseconds to Date object
     var convertedDate = new Date();
-    convertedDate.setTime($scope.list[index].athlete.dob);
+    convertedDate.setTime($scope.list[index].date);
     
-    myService.editTask.athlete.dob = convertedDate;
+    myService.editTask.date = convertedDate;
     myService.editKey = index;
     myService.listRef = $scope.list;
     $location.path('/results/edit');

@@ -69,7 +69,7 @@ app.config(function ($routeProvider) {
     }).
     when('/results/edit', {
       templateUrl: 'views/partials/editResults.html',
-      controller: 'resultsController'
+      controller: 'editResultsController'
     }).
     when('/workouts', {
       templateUrl: 'views/partials/workouts.html',

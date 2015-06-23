@@ -6,10 +6,10 @@
       <table class="table table-hover">
         <tbody>
           <tr>
-            <th> <a href="" ng-click="order('result.fullName')">Full name</a></th>
-            <th> <a href="" ng-click="order('result.date')">Date</a></th>
-            <th><a href="" ng-click="order('result.meet')">Meet</a></th>
-            <th><a href="" ng-click="order('result.event')"> Event</a></th>
+            <th> <a href="" ng-click="order('fullName')">Full name</a></th>
+            <th> <a href="" ng-click="order('date')">Date</a></th>
+            <th><a href="" ng-click="order('meet')">Meet</a></th>
+            <th><a href="" ng-click="order('event')"> Event</a></th>
             <th>Result</th>
             <th></th>
             <th></th>
@@ -19,7 +19,7 @@
             <td>{{result.date | date:"MM/dd/yyyy"}}</td>
             <td>{{result.meet}}</td>
             <td>{{result.event}}</td>
-            <td>{{result.convertedResult}}</td>
+            <td>{{result.resultString}}</td>
             <td>
               <button type="button" ng-click="edit(result.$id)" class="btn btn-default btn-xs btn-success">Edit</button>
             </td>

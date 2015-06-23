@@ -1,0 +1,23 @@
+
+<h1 class="text-center">{{welcome}}</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <form class="form-inline">
+      <div class="form-group">
+        <select ng-model="result.fullName" autofocus="autofocus" class="form-control">
+          <option ng-repeat="person in names">{{person}}</option>
+        </select>
+        <input type="date" placeholder="yyyy-MM-dd" ng-model="result.date" required="required" class="form-control"/>
+        <input type="text" placeholder="Meet" size="20" ng-model="result.meet" class="form-control"/>
+        <select ng-model="result.event" class="form-control">
+          <option ng-repeat="event in events">{{event}}</option>
+        </select>
+        <label class="control-label">Result</label>
+        <input type="text" placeholder="1" size="3" ng-model="result.part1" class="form-control"/>
+        <input type="text" placeholder="2" size="3" ng-model="result.part2" class="form-control"/>
+        <input type="text" placeholder="3" size="3" ng-model="result.part3" class="form-control"/>
+        <button ng-click="done(result)" class="btn btn-default">Done</button>
+      </div>
+    </form>
+  </div>
+</div>

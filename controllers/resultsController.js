@@ -24,6 +24,7 @@ app.controller('resultsController', ['$scope', '$firebaseArray', function($scope
     for (var i = 0; i < $scope.athleteList.length; i++) {
       $scope.names[i] = $scope.athleteList[i].athlete.firstName + " " + $scope.athleteList[i].athlete.lastName;
     };
+    $scope.names.sort();
 
     $scope.result.fullName = $scope.names[0]; // set initial value for select input field
   });

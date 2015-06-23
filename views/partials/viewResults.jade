@@ -6,13 +6,13 @@ div(ng-controller='viewResultsController')
         tbody
           tr
             th 
-              a(href="", ng-click="order('result.fullName')") Full name
+              a(href="", ng-click="order('fullName')") Full name
             th 
-              a(href="", ng-click="order('result.date')") Date
+              a(href="", ng-click="order('date')") Date
             th
-              a(href="", ng-click="order('result.meet')") Meet
+              a(href="", ng-click="order('meet')") Meet
             th
-              a(href="", ng-click="order('result.event')")  Event
+              a(href="", ng-click="order('event')")  Event
             th Result
             th
             th
@@ -21,7 +21,8 @@ div(ng-controller='viewResultsController')
             td {{result.date | date:"MM/dd/yyyy"}}
             td {{result.meet}}
             td {{result.event}}
-            td {{result.convertedResult}}
+            //- td {{result.convertedResult}}
+            td {{result.resultString}}
             td
               button.btn.btn-default.btn-xs.btn-success(type='button', ng-click='edit(result.$id)') Edit
             td

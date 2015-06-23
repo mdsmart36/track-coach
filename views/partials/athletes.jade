@@ -8,7 +8,7 @@ h1.text-center {{welcome1}}
           .col-xs-4
             h2.text-center Athlete Info
             label.control-label First name
-            input.form-control(type='text', name='firstName', ng-model='athlete.athlete.firstName')
+            input.form-control(type='text', name='firstName', ng-model='athlete.athlete.firstName', autofocus=true)
             label.control-label Last name
             input.form-control(type='text', name='lastName', ng-model='athlete.athlete.lastName')
             label.control-label Email
@@ -19,8 +19,14 @@ h1.text-center {{welcome1}}
               label.control-label DOB
               input.form-control(type='date', name='athleteDOB', ng-model='athlete.athlete.dob')
             .col-xs-6
-              label.control-label Gender
-              input.form-control(type='text', name='athleteGender', ng-model='athlete.athlete.gender')
+              //- label.control-label Gender
+              //- input(type='text', name='athleteGender', ng-model='athlete.athlete.gender')
+              label
+                input(type='radio', value='M', ng-model='athlete.athlete.gender')
+                | Male
+              label
+                input(type='radio', value='F', ng-model='athlete.athlete.gender')
+                | Female
           .col-xs-4
             h2.text-center Primary Contact Info
             label.control-label First name
