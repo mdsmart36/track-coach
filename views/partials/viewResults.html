@@ -3,6 +3,8 @@
   <h1 class="text-center">{{welcome}}</h1>
   <div class="row">
     <div class="col-md-12">
+      <label>Filter</label>
+      <input ng-model="query"/>
       <table class="table table-hover">
         <tbody>
           <tr>
@@ -14,7 +16,7 @@
             <th></th>
             <th></th>
           </tr>
-          <tr ng-repeat="result in list | orderBy:predicate:reverse">
+          <tr ng-repeat="result in list | orderBy:predicate:reverse | filter:query">
             <td>{{result.fullName}}</td>
             <td>{{result.date | date:"MM/dd/yyyy"}}</td>
             <td>{{result.meet}}</td>

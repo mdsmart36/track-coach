@@ -2,6 +2,8 @@ div(ng-controller='viewAthletesController')
   h1.text-center {{welcome}}
   .row
     .col-md-12
+      label Filter
+      input(ng-model='query')
       table.table.table-hover
         tbody
           tr
@@ -17,7 +19,7 @@ div(ng-controller='viewAthletesController')
             th Gender
             th
             th
-          tr(ng-repeat='student in list | orderBy:predicate:reverse')
+          tr(ng-repeat='student in list | orderBy:predicate:reverse | filter:query')
             td {{student.athlete.firstName}}
             td {{student.athlete.lastName}}
             td {{student.athlete.email}}
