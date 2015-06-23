@@ -6,13 +6,10 @@ app.controller('athleteController', ['$scope', 'myService', '$firebaseArray', '$
   $scope.athlete = myService.editTask;
   $scope.editKey = myService.editKey;
   $scope.list = myService.listRef;
-  // $scope.dateObject = myService.dateObject;
-  // console.log($scope.athlete.athlete.dob);
 
   if ($scope.list === null) {
     var ref = new Firebase('https://track-coach.firebaseIO.com/athletes');
     $scope.list = $firebaseArray(ref);
-    // $scope.dateObject = new Date();
   }
 
   $scope.submit = function(athlete, $firebaseArray) {

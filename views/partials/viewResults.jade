@@ -1,2 +1,28 @@
 div(ng-controller='viewResultsController')
   h1.text-center {{welcome}}
+  .row
+    .col-md-12
+      table.table.table-hover
+        tbody
+          tr
+            th 
+              a(href="", ng-click="order('result.fullName')") Full name
+            th 
+              a(href="", ng-click="order('result.date')") Date
+            th
+              a(href="", ng-click="order('result.meet')") Meet
+            th
+              a(href="", ng-click="order('result.event')")  Event
+            th Result
+            th
+            th
+          tr(ng-repeat='result in list | orderBy:predicate:reverse')
+            td {{result.fullName}}
+            td {{result.date | date:"MM/dd/yyyy"}}
+            td {{result.meet}}
+            td {{result.event}}
+            td {{result.convertedResult}}
+            td
+              button.btn.btn-default.btn-xs.btn-success(type='button', ng-click='edit(result.$id)') Edit
+            td
+              button.btn.btn-default.btn-xs.btn-danger(type='button', ng-click='remove(result.$id)') Remove

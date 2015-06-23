@@ -9,6 +9,7 @@
     <!-- bootstrap -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     
   </head>
 
@@ -18,10 +19,10 @@
     <nav class='navbar navbar-default' ng-controller='navController'>
       <div class='container'>
         <div class='navbar-header'>
-          <a class='navbar-brand' href="/">Track Coach</a>
+          <a class='navbar-brand' href="/#/">Track Coach</a>
         </div>
         <ul class='nav navbar-nav'>
-          <li ng-show='!loggedIn'><a href="/#/">Login / Register</a></li>
+          <li ng-show='!loggedIn'><a href="/#/login">Login / Register</a></li>
           <li class='dropdown' dropdown on-toggle='toggled(open)' ng-show='loggedIn'>
             <a href class='dropdown-toggle' dropdown-toggle >Athletes<span class='caret'></span></a>
             <ul class='dropdown-menu'>
@@ -70,6 +71,7 @@
 
     <!-- controllers -->
     <script type="text/javascript" src="controllers/mainController.js"></script>
+    <script type="text/javascript" src="controllers/splashController.js"></script>
     <script type="text/javascript" src="controllers/homeController.js"></script>
     <script type="text/javascript" src="controllers/athleteController.js"></script>
     <script type="text/javascript" src="controllers/viewAthletesController.js"></script>

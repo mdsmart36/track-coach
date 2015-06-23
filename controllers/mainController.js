@@ -27,7 +27,7 @@ app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope
   };
 
   $scope.toggled = function(open) {
-    $log.log('Dropdown is now: ', open);
+    // $log.log('Dropdown is now: ', open);
   };
 
   $scope.toggleDropdown = function($event) {
@@ -40,6 +40,10 @@ app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope
 app.config(function ($routeProvider) {
   $routeProvider.
     when('/', {
+      templateUrl: 'views/partials/splash.html',
+      controller: 'splashController'
+    }).
+    when('/login', {
       templateUrl: 'views/partials/home.html',
       controller: 'homeController'
     }).
