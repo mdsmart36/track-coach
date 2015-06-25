@@ -1,23 +1,47 @@
+//- h1.text-center {{welcome}}
+//- .row
+//-   .col-xs-1
+//-   .col-xs-3
+//-     form.form-horizontal
+//-       .form-group(ng-show='showLogin')
+//-         label.control-label Email
+//-         input.form-control(type='email', name='userEmail', ng-model='user.email')
+//-         label.control-label Password
+//-         input.form-control(type='password', name='userEmail', ng-model='user.password')
+//-         button.btn.btn-default(ng-click='login()') Login
+//-         span &nbsp;&nbsp;&nbsp;
+//-         a(ng-click='showRegisterBtn()') Register
+//-       .form-group(ng-show='showRegister')
+//-         label.control-label Email
+//-         input.form-control(type='email', name='userEmail', ng-model='user.email')
+//-         label.control-label Password
+//-         input.form-control(type='password', name='userEmail', ng-model='user.password')
+//-         button.btn.btn-default(ng-click='register()') Register
+//-         span &nbsp;&nbsp;&nbsp;
+//-         a(ng-click='showLoginBtn()') Login
+//-   .col-xs-7
+//-   .col-xs-1
+
 h1.text-center {{welcome}}
 .row
   .col-xs-1
   .col-xs-3
-    form.form-horizontal
-      .form-group(ng-show='showLogin')
+    form.form-horizontal(name='authForm')
+      div(ng-class="{ 'has-error': authForm.userEmail.$invalid }")
         label.control-label Email
-        input.form-control(type='email', name='userEmail', ng-model='user.email')
+        input.form-control(type='email', name='userEmail', ng-model='user.email', required)
+        p(ng-show='authForm.userEmail.$invalid') Enter a valid email address.
+      div(ng-class="{ 'has-error': authForm.userPassword.$error.minlength }")
         label.control-label Password
-        input.form-control(type='password', name='userEmail', ng-model='user.password')
+        input.form-control(type='password', name='userPassword', ng-model='user.password', ng-minlength='6')
+        p(ng-show='authForm.userPassword.$error.minlength') Min password length = 6 chars
+      div(ng-show='showLogin')
         button.btn.btn-default(ng-click='login()') Login
         span &nbsp;&nbsp;&nbsp;
         a(ng-click='showRegisterBtn()') Register
-      .form-group(ng-show='showRegister')
-        label.control-label Email
-        input.form-control(type='email', name='userEmail', ng-model='user.email')
-        label.control-label Password
-        input.form-control(type='password', name='userEmail', ng-model='user.password')
+      div(ng-show='showRegister')
         button.btn.btn-default(ng-click='register()') Register
         span &nbsp;&nbsp;&nbsp;
-        a(ng-click='showLoginBtn()') Login
+        a(ng-click='showLoginBtn()') Login        
   .col-xs-7
   .col-xs-1

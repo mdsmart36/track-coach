@@ -1,6 +1,8 @@
 app.controller('homeController', ['$scope', '$rootScope', '$location', 
   function($scope, $rootScope, $location) {
-  
+
+  // THIS CONTROLLER FOR LOGIN AND REGISTRATION
+
   $scope.welcome = "Welcome to Track Coach / Login and Registration";
   $scope.showRegister = false;
   $scope.showLogin = true;
@@ -27,7 +29,7 @@ app.controller('homeController', ['$scope', '$rootScope', '$location',
       if (error) {
         console.log("Login Failed!", error);
       } else {
-        console.log("Authenticated successfully with payload:", authData);
+        console.log("Authenticated successfully:", authData);
         $rootScope.loggedIn = true;
         $location.path('/team');
       }
