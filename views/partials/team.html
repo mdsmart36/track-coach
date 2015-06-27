@@ -1,4 +1,72 @@
 
 <div ng-controller="teamController">
-  <h1 class="text-center">{{welcome}}</h1>
+  <h1 class="text-center">{{team.teamName}}</h1>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-3">
+      <form>
+        <div class="form-group">
+          <label class="control-label">Team name</label>
+          <input type="text" ng-change="team.$save()" ng-model="team.teamName" autofocus="autofocus" class="form-control"/>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <label class="control-label">Coach 1</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach1.name" class="form-control"/>
+              <label class="control-label">Email</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach1.email" class="form-control"/>
+              <label class="control-label">Phone</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach1.phone" class="form-control"/>
+              <label class="control-label">Notes</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach1.notes" class="form-control"/>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <label class="control-label">Coach 2</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach2.name" class="form-control"/>
+              <label class="control-label">Email</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach2.email" class="form-control"/>
+              <label class="control-label">Phone</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach2.phone" class="form-control"/>
+              <label class="control-label">Notes</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach2.notes" class="form-control"/>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <label class="control-label">Coach 3</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach3.name" class="form-control"/>
+              <label class="control-label">Email</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach3.email" class="form-control"/>
+              <label class="control-label">Phone</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach3.phone" class="form-control"/>
+              <label class="control-label">Notes</label>
+              <input type="text" ng-change="team.$save()" ng-model="team.coach3.notes" class="form-control"/>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-7">
+      <div class="panel panel-default">
+        <h4>{{team.coach1.name}}</h4>
+        <p class="indent">{{team.coach1.email}}</p>
+        <p class="indent">{{team.coach1.phone}}</p>
+        <p class="indent">{{team.coach1.notes}}</p>
+      </div>
+      <div class="panel panel-default">
+        <h4>{{team.coach2.name}}</h4>
+        <p class="indent">{{team.coach2.email}}</p>
+        <p class="indent">{{team.coach2.phone}}</p>
+        <p class="indent">{{team.coach2.notes}}</p>
+      </div>
+      <div class="panel panel-default">
+        <h4>{{team.coach3.name}}</h4>
+        <p class="indent">{{team.coach3.email}}</p>
+        <p class="indent">{{team.coach3.phone}}</p>
+        <p class="indent">{{team.coach3.notes}}</p>
+      </div>
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
 </div>

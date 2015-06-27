@@ -7,10 +7,14 @@ h1.text-center {{welcome}}
           option(ng-repeat='person in names') {{person}}
         input.form-control(type='date', placeholder='yyyy-MM-dd', ng-model='result.date', required)
         input.form-control(type='text', placeholder='Meet', size='20', ng-model='result.meet')
-        select.form-control(ng-model='result.event')
+        select.form-control(ng-model='result.event', ng-change='showUnits()')
           option(ng-repeat='event in events') {{event}}
         label.control-label Result
         input.form-control(type='text', placeholder='1', size='3', ng-model='result.part1')
+        label(ng-show='runningEvent') Mins
+        label(ng-show='!runningEvent') Feet
         input.form-control(type='text', placeholder='2', size='3', ng-model='result.part2')
+        label(ng-show='runningEvent') Secs
+        label(ng-show='!runningEvent') Inches
         input.form-control(type='text', placeholder='3', size='3', ng-model='result.part3')
         button.btn.btn-default(ng-click='submit(result)') Save

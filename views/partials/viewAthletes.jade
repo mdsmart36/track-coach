@@ -12,6 +12,10 @@ div(ng-controller='viewAthletesController')
             th 
               a(href="", ng-click="order('athlete.lastName')") Last Name
             th
+              a(href="", ng-click="order('athlete.address')")  Address
+            th
+              a(href="", ng-click="order('athlete.city')")  City
+            th
               a(href="", ng-click="order('athlete.email')")  Email
             th
               a(href="", ng-click="order('athlete.phoneNumber')") Contact #
@@ -23,6 +27,8 @@ div(ng-controller='viewAthletesController')
           tr(ng-repeat='student in list | orderBy:predicate:reverse | filter:query')
             td {{student.athlete.firstName}}
             td {{student.athlete.lastName}}
+            td {{student.athlete.address}}
+            td {{student.athlete.city}}
             td {{student.athlete.email}}
             td {{student.athlete.phoneNumber}}
             td {{student.athlete.dob | date:"MM/dd/yyyy"}}

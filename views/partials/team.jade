@@ -1,2 +1,60 @@
 div(ng-controller='teamController')
-  h1.text-center {{welcome}}
+  h1.text-center {{team.teamName}}
+  .row
+    .col-xs-1
+    .col-xs-3
+      //- form for team information
+      form
+        .form-group
+          label.control-label Team name
+          input.form-control(type='text', ng-change='team.$save()', ng-model='team.teamName', autofocus=true)
+          .panel.panel-default
+            .panel-body
+              label.control-label Coach 1
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach1.name')
+              label.control-label Email
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach1.email')
+              label.control-label Phone
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach1.phone')
+              label.control-label Notes
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach1.notes')
+          .panel.panel-default
+            .panel-body
+              label.control-label Coach 2
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach2.name')
+              label.control-label Email
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach2.email')
+              label.control-label Phone
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach2.phone')
+              label.control-label Notes
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach2.notes')
+          .panel.panel-default
+            .panel-body
+              label.control-label Coach 3
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach3.name')
+              label.control-label Email
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach3.email')
+              label.control-label Phone
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach3.phone')
+              label.control-label Notes
+              input.form-control(type='text', ng-change='team.$save()', ng-model='team.coach3.notes')
+          
+    .col-xs-7
+      //- display team information at-a-glance
+      div.panel.panel-default
+        h4 {{team.coach1.name}}
+        p.indent {{team.coach1.email}}
+        p.indent {{team.coach1.phone}}
+        p.indent {{team.coach1.notes}}
+      div.panel.panel-default
+        h4 {{team.coach2.name}}
+        p.indent {{team.coach2.email}}
+        p.indent {{team.coach2.phone}}
+        p.indent {{team.coach2.notes}}
+      div.panel.panel-default
+        h4 {{team.coach3.name}}
+        p.indent {{team.coach3.email}}
+        p.indent {{team.coach3.phone}}
+        p.indent {{team.coach3.notes}}
+
+    .col-xs-1

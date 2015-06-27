@@ -7,3 +7,7 @@ li {
   list-style: none;
   display: inline;
 }
+
+.indent {
+  margin-left: 40px;
+}

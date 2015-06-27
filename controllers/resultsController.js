@@ -7,6 +7,8 @@ app.controller('resultsController', ['$scope', '$firebaseArray', function($scope
   $scope.result.part1 = "00";
   $scope.result.part2 = "00";
   $scope.result.part3 = "00";
+  $scope.runningEvent = true;
+
   var today = new Date();
   $scope.result.date = new Date(today.getFullYear(), today.getMonth(), today.getDate());
   $scope.events = [ '100m', '100m H', '110m H', '200m', '300m H', '400m', '800m', '1600m', '3200m', 'LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault', '4x100m', '4x200m', '4x400m', '4x800m' ];
@@ -54,11 +56,9 @@ app.controller('resultsController', ['$scope', '$firebaseArray', function($scope
 
     if (fieldEvents.indexOf($scope.result.event) === -1) {
     // running event, convert result fields to seconds
-      console.log('running event');
       convertedResult = (part1 * 60) + part2 + (part3 / 100);
     } else {
     // jumping event, convert result fields to inches
-      console.log('field event');
       convertedResult = (part1 * 12) + part2 + (part3 / 100);
     }
 
@@ -75,6 +75,14 @@ app.controller('resultsController', ['$scope', '$firebaseArray', function($scope
     $scope.result.fullName = $scope.names[0]; // set initial value for select input field
     $scope.result.event = $scope.events[0];
 
+  };
+
+  $scope.showUnits = function() {
+    if (fieldEvents.indexOf($scope.result.event) === -1) {
+      $scope.runningEvent = true;
+    } else  {
+      $scope.runningEvent = false;
+    }
   };
 
 }]);

@@ -9,12 +9,16 @@
         </select>
         <input type="date" placeholder="yyyy-MM-dd" ng-model="result.date" required="required" class="form-control"/>
         <input type="text" placeholder="Meet" size="20" ng-model="result.meet" class="form-control"/>
-        <select ng-model="result.event" class="form-control">
+        <select ng-model="result.event" ng-change="showUnits()" class="form-control">
           <option ng-repeat="event in events">{{event}}</option>
         </select>
         <label class="control-label">Result</label>
         <input type="text" placeholder="1" size="3" ng-model="result.part1" class="form-control"/>
+        <label ng-show="runningEvent">Mins</label>
+        <label ng-show="!runningEvent">Feet</label>
         <input type="text" placeholder="2" size="3" ng-model="result.part2" class="form-control"/>
+        <label ng-show="runningEvent">Secs</label>
+        <label ng-show="!runningEvent">Inches</label>
         <input type="text" placeholder="3" size="3" ng-model="result.part3" class="form-control"/>
         <button ng-click="submit(result)" class="btn btn-default">Save</button>
       </div>

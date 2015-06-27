@@ -1,16 +1,28 @@
-h1.text-center {{welcome1}}
+h2.text-center {{welcome1}}
 .row
   .col-xs-12
-    button.btn.btn-default(ng-click='athlete = {}') Clear form
+    button.btn.btn-default.btn-xs(ng-click='athlete = {}') Clear form
     form.form-horizontal
       .form-group
         .col-xs-12
           .col-xs-4
-            h2.text-center Athlete Info
+            h3.text-center Athlete Info
             label.control-label First name
             input.form-control(type='text', name='firstName', ng-model='athlete.athlete.firstName', autofocus=true)
             label.control-label Last name
             input.form-control(type='text', name='lastName', ng-model='athlete.athlete.lastName')
+            label.control-label Address
+            input.form-control(type='text', name='address', ng-model='athlete.athlete.address')
+            .row
+              .col-xs-6
+                label.control-label City
+                input.form-control(type='text', name='city', size='10', ng-model='athlete.athlete.city')
+              .col-xs-3
+                label.control-label State
+                input.form-control(type='text', name='state', size='3', ng-model='athlete.athlete.state')
+              .col-xs-3
+                label.control-label Zip
+                input.form-control(type='text', name='zip', size='5', ng-model='athlete.athlete.zip')
             label.control-label Email
             input.form-control(type='email', name='athleteEmail', ng-model='athlete.athlete.email')
             label.control-label Contact #
@@ -19,8 +31,8 @@ h1.text-center {{welcome1}}
               label.control-label DOB
               input.form-control(type='date', name='athleteDOB', ng-model='athlete.athlete.dob')
             .col-xs-6
-              //- label.control-label Gender
-              //- input(type='text', name='athleteGender', ng-model='athlete.athlete.gender')
+              p
+              p Gender
               label
                 input(type='radio', value='M', ng-model='athlete.athlete.gender')
                 | Male
@@ -28,7 +40,7 @@ h1.text-center {{welcome1}}
                 input(type='radio', value='F', ng-model='athlete.athlete.gender')
                 | Female
           .col-xs-4
-            h2.text-center Primary Contact Info
+            h3.text-center Primary Contact Info
             label.control-label First name
             input.form-control(type='text', name='pcFirstName', ng-model='athlete.primaryContact.firstName')
             label.control-label Last name
@@ -37,8 +49,10 @@ h1.text-center {{welcome1}}
             input.form-control(type='email', name='pcEmail', ng-model='athlete.primaryContact.email')
             label.control-label Contact #
             input.form-control(type='tel', name='pcNumber', ng-model='athlete.primaryContact.phoneNumber')
+            label.control-label Athlete Medical Issues
+            textarea.form-control(ng-model='athlete.medical')
           .col-xs-4
-            h2.text-center Secondary Contact Info
+            h3.text-center Secondary Contact Info
             label.control-label First name
             input.form-control(type='text', name='scFirstName', ng-model='athlete.secondaryContact.firstName')
             label.control-label Last name
@@ -47,15 +61,8 @@ h1.text-center {{welcome1}}
             input.form-control(type='email', name='scEmail', ng-model='athlete.secondaryContact.email')
             label.control-label Contact #
             input.form-control(type='tel', name='scNumber', ng-model='athlete.secondaryContact.phoneNumber')
-      .form-group
-        .col-xs-1
-        .col-xs-10
-          label.control-label Medical Issues
-          textarea.form-control(ng-model='athlete.medical')
-          label.control-label Notes
-          textarea.form-control(ng-model='athlete.notes')
-          label.control-label Waiver Signed?
-          input(type='checkbox', ng-model='athlete.waiver')
-          button.btn.btn-default(ng-click='submit(athlete)') Save
-          //- button.btn(ng-show='$scope.editKey !== -1', ng-click='done()') Done
-        .col-xs-1
+            label.control-label Athlete Notes
+            textarea.form-control(ng-model='athlete.notes')
+            label.control-label Waiver Signed?
+            input(type='checkbox', ng-model='athlete.waiver')
+            button.btn.btn-default(ng-click='submit(athlete)') Save

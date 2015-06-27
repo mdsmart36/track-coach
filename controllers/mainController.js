@@ -6,6 +6,7 @@ app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope
   $scope.authObj = $firebaseAuth(ref);
   $rootScope.loggedIn = false;
 
+  // when logged in, change navbar to reflect
   $scope.authObj.$onAuth(function(authData) {
     if (authData) {
       console.log("Logged in as:", authData.uid);
@@ -22,6 +23,7 @@ app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope
     $location.path('/');
   };
 
+  // three helper functions for Angular UI dropdowns
   $scope.status = {
     isopen: false
   };
@@ -37,6 +39,7 @@ app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope
   };
 });
 
+// configure routes with Angular Route
 app.config(function ($routeProvider) {
   $routeProvider.
     when('/', {
@@ -86,8 +89,7 @@ app.config(function ($routeProvider) {
 });
 
 app.service('myService', function(){
-  this.editTask = {};
-  this.editKey = -1;
-  this.listRef = null;
-  // this.dateObject = new Date();
+  this.editTask = {}; // object to share
+  this.editKey = -1; // index of the object in the array
+  this.listRef = null; // ref to the Firebase array
 });

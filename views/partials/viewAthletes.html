@@ -10,6 +10,8 @@
           <tr>
             <th> <a href="" ng-click="order('athlete.firstName')">First Name</a></th>
             <th> <a href="" ng-click="order('athlete.lastName')">Last Name</a></th>
+            <th><a href="" ng-click="order('athlete.address')"> Address</a></th>
+            <th><a href="" ng-click="order('athlete.city')"> City</a></th>
             <th><a href="" ng-click="order('athlete.email')"> Email</a></th>
             <th><a href="" ng-click="order('athlete.phoneNumber')">Contact #</a></th>
             <th><a href="" ng-click="order('athlete.dob')">DOB</a></th>
@@ -20,6 +22,8 @@
           <tr ng-repeat="student in list | orderBy:predicate:reverse | filter:query">
             <td>{{student.athlete.firstName}}</td>
             <td>{{student.athlete.lastName}}</td>
+            <td>{{student.athlete.address}}</td>
+            <td>{{student.athlete.city}}</td>
             <td>{{student.athlete.email}}</td>
             <td>{{student.athlete.phoneNumber}}</td>
             <td>{{student.athlete.dob | date:"MM/dd/yyyy"}}</td>
