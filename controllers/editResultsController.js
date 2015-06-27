@@ -7,8 +7,10 @@ app.controller('editResultsController', ['$scope', 'myService', '$firebaseArray'
   $scope.editKey = myService.editKey;
   $scope.resultList = myService.listRef;
   $scope.names = []; // array of names for an HTML <select>
+  $scope.runningEvent = true;
 
   $scope.events = [ '100m', '100m H', '110m H', '200m', '300m H', '400m', '800m', '1600m', '3200m', 'LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault', '4x100m', '4x200m', '4x400m', '4x800m' ];
+  var fieldEvents = ['LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault'];
 
   // get list of athletes from database
   var refAthletes = new Firebase('https://track-coach.firebaseIO.com/athletes');
@@ -46,7 +48,14 @@ app.controller('editResultsController', ['$scope', 'myService', '$firebaseArray'
     $scope.result.convertedResult = convertedResult;
     $scope.resultList.$save($scope.editKey);
     $location.path('/results/view');
-  }
+  };
 
+  $scope.showUnits = function() {
+    if (fieldEvents.indexOf($scope.result.event) === -1) {
+      $scope.runningEvent = true;
+    } else  {
+      $scope.runningEvent = false;
+    }
+  };
 
 }]);

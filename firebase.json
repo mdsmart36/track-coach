@@ -1,0 +1,9 @@
+{
+  "firebase": "track-coach",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

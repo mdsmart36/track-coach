@@ -5,7 +5,7 @@
 3. Open the browser to localhost:8080 (or whatever port it is configured to)
 
 ## How to run Track Coach from the web
-Point your browser to https://track-coach.firebaseapp.io
+Point your browser to https://track-coach.firebaseapp.com
 
 Manage your team
 Keep critical information on your athletes current and available at a glance/

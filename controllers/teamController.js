@@ -5,6 +5,4 @@ app.controller('teamController', ['$scope', '$firebaseObject', function($scope, 
   var ref = new Firebase('https://track-coach.firebaseIO.com/team');
   $scope.team = $firebaseObject(ref);
 
-
-
 }]);
