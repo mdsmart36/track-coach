@@ -1,4 +1,4 @@
-app.controller('resultsController', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
+app.controller('resultsController', ['$scope', '$firebaseArray', 'FIREBASE_APP', function($scope, $firebaseArray, FIREBASE_APP) {
 
   // initialize variables for the results form
   $scope.welcome = "Welcome to Add Results page";
@@ -16,8 +16,8 @@ app.controller('resultsController', ['$scope', '$firebaseArray', function($scope
   $scope.result.event = $scope.events[0];
 
   // get list of athletes from database
-  var refAthletes = new Firebase('https://track-coach.firebaseIO.com/athletes');
-  var refResults = new Firebase('https://track-coach.firebaseIO.com/results');
+  var refAthletes = new Firebase(FIREBASE_APP + '/athletes');
+  var refResults = new Firebase(FIREBASE_APP + '/results');
   $scope.athleteList = $firebaseArray(refAthletes);
   $scope.resultList = $firebaseArray(refResults);
   

@@ -1,8 +1,6 @@
 app.controller('viewAthletesController', [
-  '$scope', 
-  '$firebaseArray', 
-  'myService',
-  '$location', function($scope, $firebaseArray, myService, $location) {
+  '$scope', '$firebaseArray', 'myService', '$location', 'FIREBASE_APP', 
+  function($scope, $firebaseArray, myService, $location, FIREBASE_APP) {
   
   $scope.welcome = "Welcome to Athlete View / Edit page";
 
@@ -15,7 +13,7 @@ app.controller('viewAthletesController', [
   };
 
   // Get a database reference to our posts
-  var ref = new Firebase('https://track-coach.firebaseIO.com/athletes');
+  var ref = new Firebase(FIREBASE_APP + '/athletes');
   $scope.list = $firebaseArray(ref);
 
   function getIndex(key) {

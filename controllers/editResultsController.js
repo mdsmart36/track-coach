@@ -1,4 +1,4 @@
-app.controller('editResultsController', ['$scope', 'myService', '$firebaseArray', '$location', function($scope, myService, $firebaseArray, $location) {
+app.controller('editResultsController', ['$scope', 'myService', '$firebaseArray', '$location', 'FIREBASE_APP',function($scope, myService, $firebaseArray, $location, FIREBASE_APP) {
   
   $scope.welcome = "Edit Event Results";
   
@@ -13,7 +13,7 @@ app.controller('editResultsController', ['$scope', 'myService', '$firebaseArray'
   var fieldEvents = ['LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault'];
 
   // get list of athletes from database
-  var refAthletes = new Firebase('https://track-coach.firebaseIO.com/athletes');
+  var refAthletes = new Firebase(FIREBASE_APP + '/athletes');
   $scope.athleteList = $firebaseArray(refAthletes);
   
   // create an array of names based on the athleteList after the list is loaded from Firebase

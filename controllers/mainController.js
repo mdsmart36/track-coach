@@ -1,8 +1,11 @@
 var app = angular.module('TrackCoach', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
-app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope, $location) {
+app.constant('FIREBASE_APP', 'https://track-coach.firebaseio.com');
 
-  var ref = new Firebase("https://track-coach.firebaseio.com");
+app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope, $location, FIREBASE_APP) {
+
+  // var ref = new Firebase("https://track-coach.firebaseio.com");
+  var ref = new Firebase(FIREBASE_APP);
   $scope.authObj = $firebaseAuth(ref);
   $rootScope.loggedIn = false;
 
@@ -93,3 +96,4 @@ app.service('myService', function(){
   this.editKey = -1; // index of the object in the array
   this.listRef = null; // ref to the Firebase array
 });
+

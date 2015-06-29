@@ -1,5 +1,5 @@
-app.controller('homeController', ['$scope', '$rootScope', '$location', 
-  function($scope, $rootScope, $location) {
+app.controller('homeController', ['$scope', '$rootScope', '$location', 'FIREBASE_APP',
+  function($scope, $rootScope, $location, FIREBASE_APP) {
 
   // THIS CONTROLLER FOR LOGIN AND REGISTRATION
 
@@ -9,7 +9,7 @@ app.controller('homeController', ['$scope', '$rootScope', '$location',
   $scope.user = {};
   $rootScope.loggedIn = false;
 
-  var ref = new Firebase("https://track-coach.firebaseio.com");
+  var ref = new Firebase(FIREBASE_APP);
 
   $scope.showLoginBtn = function(){
     $scope.showRegister = false;

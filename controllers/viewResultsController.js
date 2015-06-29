@@ -1,8 +1,6 @@
 app.controller('viewResultsController', [
-  '$scope', 
-  '$firebaseArray', 
-  'myService',
-  '$location', function($scope, $firebaseArray, myService, $location) {
+  '$scope', '$firebaseArray', 'myService', '$location', 'FIREBASE_APP', 
+  function($scope, $firebaseArray, myService, $location, FIREBASE_APP) {
 
   $scope.welcome = "Welcome to View Results page";
   
@@ -15,7 +13,7 @@ app.controller('viewResultsController', [
   };
 
   // Get a database reference to our posts
-  var ref = new Firebase('https://track-coach.firebaseIO.com/results');
+  var ref = new Firebase(FIREBASE_APP + '/results');
   $scope.list = $firebaseArray(ref);
 
   var fieldEvents = ['LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault'];
@@ -36,7 +34,6 @@ app.controller('viewResultsController', [
       // jumping event, convert result to distance string
         $scope.list[i].resultString = part1 + "\' " + part2 + "." + part3 + "\""
       }
-      // console.log(resultsArray[i]);
     }
   });
 
