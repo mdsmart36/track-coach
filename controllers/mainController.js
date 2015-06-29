@@ -14,6 +14,8 @@ app.controller('navController', function($scope, $log, $firebaseAuth, $rootScope
     if (authData) {
       console.log("Logged in as:", authData.uid);
       $rootScope.loggedIn = true;
+      $rootScope.userName = authData.password.email.replace(/@.*/, '');
+      // $log.log($rootScope.userName);
 
     } else {
       console.log("Logged out");

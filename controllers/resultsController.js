@@ -1,4 +1,6 @@
-app.controller('resultsController', ['$scope', '$firebaseArray', 'FIREBASE_APP', function($scope, $firebaseArray, FIREBASE_APP) {
+app.controller('resultsController', [
+  '$scope', '$firebaseArray', '$rootScope', 'FIREBASE_APP', 
+  function($scope, $firebaseArray, $rootScope, FIREBASE_APP) {
 
   // initialize variables for the results form
   $scope.welcome = "Welcome to Add Results page";
@@ -16,8 +18,9 @@ app.controller('resultsController', ['$scope', '$firebaseArray', 'FIREBASE_APP',
   $scope.result.event = $scope.events[0];
 
   // get list of athletes from database
-  var refAthletes = new Firebase(FIREBASE_APP + '/athletes');
-  var refResults = new Firebase(FIREBASE_APP + '/results');
+  var userPath = FIREBASE_APP + '/users/' + $rootScope.userName;
+  var refAthletes = new Firebase(userPath + '/athletes');
+  var refResults = new Firebase(userPath + '/results');
   $scope.athleteList = $firebaseArray(refAthletes);
   $scope.resultList = $firebaseArray(refResults);
   

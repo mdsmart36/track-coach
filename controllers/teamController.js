@@ -1,8 +1,12 @@
-app.controller('teamController', ['$scope', '$firebaseObject', 'FIREBASE_APP', function($scope, $firebaseObject, FIREBASE_APP) {
+app.controller('teamController', [
+  '$scope', '$firebaseObject', '$rootScope', 'FIREBASE_APP', 
+  function($scope, $firebaseObject, $rootScope, FIREBASE_APP) {
+    
   $scope.welcome = "Welcome to Team page";
   $scope.team = {};
 
-  var ref = new Firebase(FIREBASE_APP + '/team');
+  var userPath = FIREBASE_APP + '/users/' + $rootScope.userName;
+  var ref = new Firebase(userPath + '/team');
   $scope.team = $firebaseObject(ref);
 
 }]);

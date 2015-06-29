@@ -1,4 +1,5 @@
-app.controller('homeController', ['$scope', '$rootScope', '$location', 'FIREBASE_APP',
+app.controller('homeController', [
+  '$scope', '$rootScope', '$location', 'FIREBASE_APP',
   function($scope, $rootScope, $location, FIREBASE_APP) {
 
   // THIS CONTROLLER FOR LOGIN AND REGISTRATION
@@ -45,6 +46,8 @@ app.controller('homeController', ['$scope', '$rootScope', '$location', 'FIREBASE
         console.log("Error creating user:", error);
       } else {
         console.log("Successfully created user account with uid:", userData.uid);
+        alert('Successful registration. Please log in with your email and password.');
+        $location.path('/login');
       }
     });
   }

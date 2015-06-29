@@ -1,5 +1,6 @@
-app.controller('athleteController', ['$scope', 'myService', '$firebaseArray', '$location', 'FIREBASE_APP',
-  function($scope, myService, $firebaseArray, $location, FIREBASE_APP) {
+app.controller('athleteController', [
+  '$scope', 'myService', '$firebaseArray', '$location', '$rootScope', 'FIREBASE_APP',
+  function($scope, myService, $firebaseArray, $location, $rootScope, FIREBASE_APP) {
 
   // THIS CONTROLLER IS USED FOR TWO VIEWS: athletes.html and editAthletes.html
 
@@ -11,10 +12,11 @@ app.controller('athleteController', ['$scope', 'myService', '$firebaseArray', '$
   $scope.editKey = myService.editKey;
   $scope.list = myService.listRef;
 
+  var userPath = FIREBASE_APP + '/users/' + $rootScope.userName;
   // initialize list of athletes (in the case of an 'add')
   if ($scope.list === null) {
     // var ref = new Firebase('https://track-coach.firebaseIO.com/athletes');
-    var ref = new Firebase(FIREBASE_APP + '/athletes');
+    var ref = new Firebase(userPath + '/athletes');
     $scope.list = $firebaseArray(ref);
   }
 

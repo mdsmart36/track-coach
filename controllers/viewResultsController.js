@@ -1,6 +1,6 @@
 app.controller('viewResultsController', [
-  '$scope', '$firebaseArray', 'myService', '$location', 'FIREBASE_APP', 
-  function($scope, $firebaseArray, myService, $location, FIREBASE_APP) {
+  '$scope', '$firebaseArray', 'myService', '$location', '$rootScope', 'FIREBASE_APP', 
+  function($scope, $firebaseArray, myService, $location, $rootScope, FIREBASE_APP) {
 
   $scope.welcome = "Welcome to View Results page";
   
@@ -13,7 +13,8 @@ app.controller('viewResultsController', [
   };
 
   // Get a database reference to our posts
-  var ref = new Firebase(FIREBASE_APP + '/results');
+  var userPath = FIREBASE_APP + '/users/' + $rootScope.userName;
+  var ref = new Firebase(userPath + '/results');
   $scope.list = $firebaseArray(ref);
 
   var fieldEvents = ['LJ', 'HJ', 'TJ', 'Shot Put', 'Discus', 'Pole Vault'];

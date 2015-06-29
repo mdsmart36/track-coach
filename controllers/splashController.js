@@ -1,3 +1,5 @@
-app.controller('splashController', ['$scope', function($scope) {
+app.controller('splashController', [
+  '$scope', 
+  function($scope) {
   
 }]);

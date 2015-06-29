@@ -1,6 +1,6 @@
 app.controller('viewAthletesController', [
-  '$scope', '$firebaseArray', 'myService', '$location', 'FIREBASE_APP', 
-  function($scope, $firebaseArray, myService, $location, FIREBASE_APP) {
+  '$scope', '$firebaseArray', 'myService', '$location', '$rootScope', 'FIREBASE_APP', 
+  function($scope, $firebaseArray, myService, $location, $rootScope, FIREBASE_APP) {
   
   $scope.welcome = "Welcome to Athlete View / Edit page";
 
@@ -13,7 +13,8 @@ app.controller('viewAthletesController', [
   };
 
   // Get a database reference to our posts
-  var ref = new Firebase(FIREBASE_APP + '/athletes');
+  var userPath = FIREBASE_APP + '/users/' + $rootScope.userName;
+  var ref = new Firebase(userPath + '/athletes');
   $scope.list = $firebaseArray(ref);
 
   function getIndex(key) {
