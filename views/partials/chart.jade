@@ -1,4 +1,10 @@
 div(ng-controller='chartController')
   .row
-    .col-xs-6
+    .col-xs-1
+    .col-xs-2
+      h1.text-right {{athlete}}
+      h2.text-right {{event}}
+      button.btn.btn-default.pull-right(ng-click='print()') Print
+    .col-xs-8
       canvas.chart.chart-line(id='line', data='data' labels='labels' legend='true' series='series')
+    .col-xs-1

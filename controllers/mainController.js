@@ -107,5 +107,7 @@ app.service('chartService', function(){
   this.data = [];
   this.labels = [];
   this.series =[];
+  this.athlete = "";
+  this.event = "";
 });
 

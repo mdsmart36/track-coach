@@ -1,4 +1,4 @@
-h1.text-center {{welcome}}
+h1 {{welcome}}
 .row
   .col-xs-12
     form.form-inline
@@ -18,4 +18,14 @@ h1.text-center {{welcome}}
         label(ng-show='!runningEvent') Inches
         input.form-control(type='text', placeholder='3', size='3', ng-model='result.part3')
         button.btn.btn-default(ng-click='submit(result)') Save
+        //- button.btn.btn-default(ng-click='chart(result)') Chart
+.row
+  .col-xs-12
+    h1 Chart Results
+    form.form-inline
+      .form-group
+        select.form-control(ng-model='result.fullName', autofocus=true)
+          option(ng-repeat='person in names') {{person}}
+        select.form-control(ng-model='result.event', ng-change='showUnits()')
+          option(ng-repeat='event in events') {{event}}
         button.btn.btn-default(ng-click='chart(result)') Chart

@@ -3,7 +3,7 @@ app.controller('resultsController', [
   function($scope, $firebaseArray, $rootScope, FIREBASE_APP, $location, chartService) {
 
   // initialize variables for the results form
-  $scope.welcome = "Welcome to Add Results page";
+  $scope.welcome = "Add Results";
   $scope.result = {};
   $scope.names = [];
   $scope.result.part1 = "00";
@@ -99,47 +99,30 @@ $scope.data = [];
     // search on result.fullName && result.event
     
     $scope.resultList.$loaded().then(function(){
-      console.log("inside chart");
-      // console.log($scope.resultList[0]);
+      // when entire array of result has been loaded from Firebase, create chart data
       var tempData = [];
       var tempLabels = [];
       var counter = 1;
 
       for (var i = 0; i < $scope.resultList.length; i++) {
-        // console.log($scope.resultList[i]);
         if (($scope.resultList[i].fullName === result.fullName) && 
           ($scope.resultList[i].event === result.event)) {
-          // console.log($scope.resultList[i]);
-          // push convertedResult onto $scope.data
-          tempData.push($scope.resultList[i].convertedResult / 12);
-          // var chartDate = $scope.resultList[i].date.getTime();
-
-          tempLabels.push(counter.toString());
+            tempData.push($scope.resultList[i].convertedResult);
+            tempLabels.push(counter.toString());
           counter++;
         }
       };
-      // console.log(tempData)
-      $scope.data = tempData;
-      $scope.labels = ['1', '2'];
-      $scope.labels = tempLabels;
-      // console.log($scope.data);
-      // console.log($scope.labels);
 
-      // save the data to a shared service
-      // go to chart page and chart controller
-      // display chart
+      // $scope.data = tempData;
+      // $scope.labels = tempLabels;
 
-      chartService.data = $scope.data;
-      chartService.labels = $scope.labels;
+      // save the data to a shared service, go to chart page and chart controller
+      chartService.data = tempData;
+      chartService.labels = tempLabels;
       chartService.series = $scope.series;
-
-      console.log(chartService.data, 'chartService.data');
-      console.log(chartService.labels, 'chartService.labels');
-
+      chartService.athlete = result.fullName;
+      chartService.event = result.event;
       $location.path('/chart');
-
-      // inject the canvas into the page after the values are set
-      // document.getElementById('chartCanvas').innerHTML = "<canvas class='chart chart-line' id='line' data='data' labels='labels' legend='true' series='series'></canvas>";
       
     });
 

@@ -1,8 +1,15 @@
 
 <div ng-controller="chartController">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">
+      <h1 class="text-right">{{athlete}}</h1>
+      <h2 class="text-right">{{event}}</h2>
+      <button ng-click="print()" class="btn btn-default pull-right">Print</button>
+    </div>
+    <div class="col-xs-8">
       <canvas id="line" data="data" labels="labels" legend="true" series="series" class="chart chart-line"></canvas>
     </div>
+    <div class="col-xs-1"></div>
   </div>
 </div>
