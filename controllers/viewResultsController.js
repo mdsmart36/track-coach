@@ -71,4 +71,8 @@ app.controller('viewResultsController', [
     $scope.list.$remove(index);
   }
 
+  $scope.print = function(){
+    window.print();
+  }
+
 }]);

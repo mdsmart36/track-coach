@@ -4,6 +4,7 @@ div(ng-controller='viewResultsController')
     .col-md-12
       label Filter
       input(ng-model='query')
+      button.btn.btn-default.btn-xs(ng-click='print()') Print
       table.table.table-hover
         tbody
           tr
