@@ -1,4 +1,4 @@
-var app = angular.module('TrackCoach', ['ngRoute', 'firebase', 'ui.bootstrap']);
+var app = angular.module('TrackCoach', ['ngRoute', 'firebase', 'ui.bootstrap', 'chart.js']);
 
 app.constant('FIREBASE_APP', 'https://track-coach.firebaseio.com');
 
@@ -87,6 +87,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/partials/team.html',
       controllers: 'teamController'
     }).
+    when('/chart', {
+      templateUrl: 'views/partials/chart.html',
+      controllers: 'chartController'
+    }).
     otherwise({
       redirectTo: '/'
     });
@@ -97,5 +101,11 @@ app.service('myService', function(){
   this.editTask = {}; // object to share
   this.editKey = -1; // index of the object in the array
   this.listRef = null; // ref to the Firebase array
+});
+
+app.service('chartService', function(){
+  this.data = [];
+  this.labels = [];
+  this.series =[];
 });
 

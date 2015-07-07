@@ -1,6 +1,6 @@
 app.controller('resultsController', [
-  '$scope', '$firebaseArray', '$rootScope', 'FIREBASE_APP', 
-  function($scope, $firebaseArray, $rootScope, FIREBASE_APP) {
+  '$scope', '$firebaseArray', '$rootScope', 'FIREBASE_APP', '$location', 'chartService',
+  function($scope, $firebaseArray, $rootScope, FIREBASE_APP, $location, chartService) {
 
   // initialize variables for the results form
   $scope.welcome = "Welcome to Add Results page";
@@ -10,6 +10,13 @@ app.controller('resultsController', [
   $scope.result.part2 = "00";
   $scope.result.part3 = "00";
   $scope.runningEvent = true;
+
+//- data for charts
+//------------------------------------
+$scope.labels = [];
+$scope.series = [];
+$scope.data = [];
+//-----------------------------
 
   var today = new Date();
   $scope.result.date = new Date(today.getFullYear(), today.getMonth(), today.getDate());
@@ -86,6 +93,56 @@ app.controller('resultsController', [
     } else  {
       $scope.runningEvent = false;
     }
+  };
+
+  $scope.chart = function(result) {
+    // search on result.fullName && result.event
+    
+    $scope.resultList.$loaded().then(function(){
+      console.log("inside chart");
+      // console.log($scope.resultList[0]);
+      var tempData = [];
+      var tempLabels = [];
+      var counter = 1;
+
+      for (var i = 0; i < $scope.resultList.length; i++) {
+        // console.log($scope.resultList[i]);
+        if (($scope.resultList[i].fullName === result.fullName) && 
+          ($scope.resultList[i].event === result.event)) {
+          // console.log($scope.resultList[i]);
+          // push convertedResult onto $scope.data
+          tempData.push($scope.resultList[i].convertedResult / 12);
+          // var chartDate = $scope.resultList[i].date.getTime();
+
+          tempLabels.push(counter.toString());
+          counter++;
+        }
+      };
+      // console.log(tempData)
+      $scope.data = tempData;
+      $scope.labels = ['1', '2'];
+      $scope.labels = tempLabels;
+      // console.log($scope.data);
+      // console.log($scope.labels);
+
+      // save the data to a shared service
+      // go to chart page and chart controller
+      // display chart
+
+      chartService.data = $scope.data;
+      chartService.labels = $scope.labels;
+      chartService.series = $scope.series;
+
+      console.log(chartService.data, 'chartService.data');
+      console.log(chartService.labels, 'chartService.labels');
+
+      $location.path('/chart');
+
+      // inject the canvas into the page after the values are set
+      // document.getElementById('chartCanvas').innerHTML = "<canvas class='chart chart-line' id='line' data='data' labels='labels' legend='true' series='series'></canvas>";
+      
+    });
+
   };
 
 }]);

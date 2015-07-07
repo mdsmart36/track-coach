@@ -1,6 +1,5 @@
 li a {
-  text-decoration: none;
-  
+  text-decoration: none;  
 }
 
 li {
@@ -11,3 +10,8 @@ li {
 .indent {
   margin-left: 40px;
 }
+
+/*canvas {
+  width: 300px;
+  height: 200px;
+}*/
