@@ -15,9 +15,22 @@ app.controller('athleteController', [
   var userPath = FIREBASE_APP + '/users/' + $rootScope.userName;
   // initialize list of athletes (in the case of an 'add')
   if ($scope.list === null) {
-    // var ref = new Firebase('https://track-coach.firebaseIO.com/athletes');
     var ref = new Firebase(userPath + '/athletes');
     $scope.list = $firebaseArray(ref);
+  }
+
+  $scope.photoPreview = function(){
+    var preview = document.querySelector('img');
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+    reader.onloadend = function(){
+      preview.src = reader.result;
+    }
+    if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        preview.src = "";
+      }
   }
 
   $scope.submit = function(athlete, $firebaseArray) {

@@ -51,6 +51,11 @@ h2.text-center {{welcome1}}
             input.form-control(type='tel', name='pcNumber', ng-model='athlete.primaryContact.phoneNumber')
             label.control-label Athlete Medical Issues
             textarea.form-control(ng-model='athlete.medical')
+            label.control-label Photo
+            //- future feature -----------
+            input.form-control(type='file', ng-change='photoPreview()', ng-model='athlete.athlete.photo')
+            img(ng-src='', height='200')
+            //- ---------------------------
           .col-xs-4
             h3.text-center Secondary Contact Info
             label.control-label First name

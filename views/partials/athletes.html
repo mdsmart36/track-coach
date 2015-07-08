@@ -59,6 +59,8 @@
             <input type="tel" name="pcNumber" ng-model="athlete.primaryContact.phoneNumber" class="form-control"/>
             <label class="control-label">Athlete Medical Issues</label>
             <textarea ng-model="athlete.medical" class="form-control"></textarea>
+            <label class="control-label">Photo</label>
+            <input type="file" ng-change="photoPreview()" ng-model="athlete.athlete.photo" class="form-control"/><img ng-src="" height="200"/>
           </div>
           <div class="col-xs-4">
             <h3 class="text-center">Secondary Contact Info</h3>
