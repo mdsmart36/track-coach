@@ -1,0 +1,14 @@
+
+<div ng-controller="linksController">
+  <div class="row">
+    <div class="col-md-4">
+      <div ng-repeat="link in links" ng-if="showDescription === $index">
+        <h1>{{link.name}}</h1>
+        <h4>{{link.description}}</h4>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div><a ng-repeat="link in links" ng-href="{{link.URL}}" target="_blank"><img ng-src="public/css/{{link.imgSource}}" alt="{{link.name}}" ng-mouseover="showDiv($index)" ng-mouseleave="hideDiv()" class="small-pic"/></a></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+div(ng-controller='linksController')
+  .row
+    .col-md-4
+      div(ng-repeat='link in links', ng-if='showDescription === $index')
+        h1 {{link.name}}
+        h4 {{link.description}}
+    .col-md-8
+      div
+        a(ng-repeat='link in links', ng-href='{{link.URL}}', target='_blank')
+          img.small-pic(ng-src='public/css/{{link.imgSource}}', alt='{{link.name}}', ng-mouseover='showDiv($index)', ng-mouseleave='hideDiv()')

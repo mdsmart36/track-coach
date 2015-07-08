@@ -95,6 +95,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/partials/chart.html',
       controllers: 'chartController'
     }).
+    when('/links', {
+      templateUrl: 'views/partials/links.html',
+      controllers: 'linksController'
+    }).
     otherwise({
       redirectTo: '/'
     });
