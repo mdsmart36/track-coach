@@ -2,7 +2,7 @@ app.controller('viewResultsController', [
   '$scope', '$firebaseArray', 'myService', '$location', '$rootScope', 'FIREBASE_APP', 
   function($scope, $firebaseArray, myService, $location, $rootScope, FIREBASE_APP) {
 
-  $scope.welcome = "Welcome to View Results page";
+  $scope.welcome = "View Results";
   
   // initialize sorting functions
   $scope.predicate = 'fullName';

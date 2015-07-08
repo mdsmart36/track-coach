@@ -37,13 +37,13 @@
             <a href class='dropdown-toggle' dropdown-toggle >Results<span class='caret'></span></a>
             <ul class='dropdown-menu'>
               <li><a href="/#/results/add">Add Results</a></li>
-              <li><a href="/#/results/view">View / Edit Results</a></li>
               <li><a href="/#/results/add">Chart Results</a></li>
+              <li><a href="/#/results/view">View / Edit Results</a></li>
               <li class='divider'></li>
             </ul>
           </li>
           <li ng-show='loggedIn'><a href="/#/workouts">Workouts</a></li>
-          <li ng-show='loggedIn'><a href="/#/team">Team</a></li>
+          <li ng-show='loggedIn'><a href="/#/coaches">Coaches</a></li>
           <li ng-show='loggedIn'><a href="" ng-click='logout()'>Logout</a></li>
         </ul>
       </div>
@@ -86,6 +86,7 @@
     <script type="text/javascript" src="controllers/teamController.js"></script>
     <script type="text/javascript" src="controllers/editResultsController.js"></script>
     <script type="text/javascript" src="controllers/chartController.js"></script>
+    <script type="text/javascript" src="controllers/profileController.js"></script>
     
   </body>
 

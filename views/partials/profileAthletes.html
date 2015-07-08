@@ -1,0 +1,35 @@
+
+<div ng-controller="profileController">
+  <h1 class="text-center">{{welcome}}</h1>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-3">
+      <h2>Athlete Info</h2>
+      <h4>{{athlete.athlete.firstName}} {{athlete.athlete.lastName}}</h4>
+      <p>{{athlete.athlete.address}}</p>
+      <p>{{athlete.athlete.city}} {{athlete.athlete.state}} {{athlete.athlete.zip}}</p><a ng-href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;to={{athlete.athlete.email}}&amp;su=Hello from Coach&amp;shva=1" target="_blank">{{athlete.athlete.email}}</a>
+      <p>{{athlete.athlete.phoneNumber}}</p>
+    </div>
+    <div class="col-xs-3">
+      <h2>Primary Contact</h2>
+      <h4>{{athlete.primaryContact.firstName}} {{athlete.primaryContact.lastName}}</h4><a ng-href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;to={{athlete.primaryContact.email}}&amp;su=Hello from Coach&amp;shva=1" target="_blank">{{athlete.primaryContact.email}}</a>
+      <p>{{athlete.primaryContact.phoneNumber}}</p>
+    </div>
+    <div class="col-xs-3">
+      <h2>Secondary Contact</h2>
+      <h4>{{athlete.secondaryContact.firstName}} {{athlete.secondaryContact.lastName}}</h4><a ng-href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;to={{athlete.secondaryContact.email}}&amp;su=Hello from Coach&amp;shva=1" target="_blank">{{athlete.secondaryContact.email}}</a>
+      <p>{{athlete.secondaryContact.phoneNumber}}</p>
+    </div>
+    <div class="col-xs-2">
+      <button ng-click="edit()" class="btn btn-default btn-xs btn-success">Edit</button>
+      <button ng-click="back()" class="btn btn-default btn-xs btn-info">Back</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-3">
+      <p>Medical Issues: {{athlete.medical}}</p>
+      <p>Notes: {{athlete.notes}}</p>
+    </div>
+  </div>
+</div>

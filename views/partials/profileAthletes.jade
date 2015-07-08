@@ -1,0 +1,29 @@
+div(ng-controller='profileController')
+  h1.text-center {{welcome}}
+  .row
+    .col-xs-1
+    .col-xs-3
+      h2 Athlete Info
+      h4 {{athlete.athlete.firstName}} {{athlete.athlete.lastName}}
+      p {{athlete.athlete.address}}
+      p {{athlete.athlete.city}} {{athlete.athlete.state}} {{athlete.athlete.zip}}
+      a(ng-href='https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to={{athlete.athlete.email}}&su=Hello from Coach&shva=1', target='_blank') {{athlete.athlete.email}}
+      p {{athlete.athlete.phoneNumber}}
+    .col-xs-3
+      h2 Primary Contact
+      h4 {{athlete.primaryContact.firstName}} {{athlete.primaryContact.lastName}}
+      a(ng-href='https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to={{athlete.primaryContact.email}}&su=Hello from Coach&shva=1', target='_blank') {{athlete.primaryContact.email}}
+      p {{athlete.primaryContact.phoneNumber}}
+    .col-xs-3
+      h2 Secondary Contact
+      h4 {{athlete.secondaryContact.firstName}} {{athlete.secondaryContact.lastName}}
+      a(ng-href='https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to={{athlete.secondaryContact.email}}&su=Hello from Coach&shva=1', target='_blank') {{athlete.secondaryContact.email}}
+      p {{athlete.secondaryContact.phoneNumber}}
+    .col-xs-2
+      button.btn.btn-default.btn-xs.btn-success(ng-click='edit()') Edit
+      button.btn.btn-default.btn-xs.btn-info(ng-click='back()') Back
+  .row
+    .col-xs-1
+    .col-xs-3
+      p Medical Issues: {{athlete.medical}}
+      p Notes: {{athlete.notes}}

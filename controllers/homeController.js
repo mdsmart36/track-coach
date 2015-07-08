@@ -32,7 +32,7 @@ app.controller('homeController', [
       } else {
         console.log("Authenticated successfully:", authData);
         $rootScope.loggedIn = true;
-        $location.path('/team');
+        $location.path('/athletes/view');
       }
     });
   }

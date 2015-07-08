@@ -2,7 +2,7 @@ app.controller('viewAthletesController', [
   '$scope', '$firebaseArray', 'myService', '$location', '$rootScope', 'FIREBASE_APP', 
   function($scope, $firebaseArray, myService, $location, $rootScope, FIREBASE_APP) {
   
-  $scope.welcome = "Welcome to Athlete View / Edit page";
+  $scope.welcome = "Your Athletes";
 
   // initialize sorting functions
   $scope.predicate = 'athlete.lastName';
@@ -39,6 +39,19 @@ app.controller('viewAthletesController', [
     myService.editKey = index;
     myService.listRef = $scope.list;
     $location.path('/athletes/edit');
+  }
+
+  $scope.view = function(key) {
+    var index = getIndex(key);
+    myService.editTask = $scope.list[index];
+    // change DOB from milliseconds to Date object
+    var convertedDate = new Date();
+    convertedDate.setTime($scope.list[index].athlete.dob);
+    
+    myService.editTask.athlete.dob = convertedDate;
+    myService.editKey = index;
+    myService.listRef = $scope.list;
+    $location.path('/athletes/profile');
   }
 
   $scope.remove = function(key) {

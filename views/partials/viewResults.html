@@ -3,8 +3,9 @@
   <h1 class="text-center">{{welcome}}</h1>
   <div class="row">
     <div class="col-md-12">
-      <label>Filter</label>
-      <input ng-model="query"/>
+      <label>Filters</label>
+      <input ng-model="query1"/>
+      <input ng-model="query2"/>
       <button ng-click="print()" class="btn btn-default btn-xs">Print</button>
       <table class="table table-hover">
         <tbody>
@@ -17,7 +18,7 @@
             <th></th>
             <th></th>
           </tr>
-          <tr ng-repeat="result in list | orderBy:predicate:reverse | filter:query">
+          <tr ng-repeat="result in list | orderBy:predicate:reverse | filter:query1 | filter:query2">
             <td>{{result.fullName}}</td>
             <td>{{result.date | date:"MM/dd/yyyy"}}</td>
             <td>{{result.meet}}</td>

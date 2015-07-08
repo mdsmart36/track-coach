@@ -2,8 +2,9 @@ div(ng-controller='viewResultsController')
   h1.text-center {{welcome}}
   .row
     .col-md-12
-      label Filter
-      input(ng-model='query')
+      label Filters
+      input(ng-model='query1')
+      input(ng-model='query2')
       button.btn.btn-default.btn-xs(ng-click='print()') Print
       table.table.table-hover
         tbody
@@ -19,7 +20,7 @@ div(ng-controller='viewResultsController')
             th Result
             th
             th
-          tr(ng-repeat='result in list | orderBy:predicate:reverse | filter:query')
+          tr(ng-repeat='result in list | orderBy:predicate:reverse | filter:query1 | filter:query2')
             td {{result.fullName}}
             td {{result.date | date:"MM/dd/yyyy"}}
             td {{result.meet}}

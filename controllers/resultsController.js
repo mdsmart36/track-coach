@@ -113,8 +113,7 @@ $scope.data = [];
         }
       };
 
-      // $scope.data = tempData;
-      // $scope.labels = tempLabels;
+      tempData.sort().reverse();
 
       // save the data to a shared service, go to chart page and chart controller
       chartService.data = tempData;

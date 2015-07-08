@@ -63,9 +63,13 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/partials/viewAthletes.html',
       controller: 'viewAthletesController'
     }).
-        when('/athletes/edit', {
+    when('/athletes/edit', {
       templateUrl: 'views/partials/editAthletes.html',
       controllers: 'athleteController'
+    }).
+    when('/athletes/profile', {
+      templateUrl: 'views/partials/profileAthletes.html',
+      controllers: 'profileController'
     }).
     when('/results/add', {
       templateUrl: 'views/partials/results.html',
@@ -83,7 +87,7 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/partials/workouts.html',
       controllers: 'workoutController'
     }).
-    when('/team', {
+    when('/coaches', {
       templateUrl: 'views/partials/team.html',
       controllers: 'teamController'
     }).

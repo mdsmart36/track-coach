@@ -18,16 +18,20 @@
             <th>Gender</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
           <tr ng-repeat="student in list | orderBy:predicate:reverse | filter:query">
             <td>{{student.athlete.firstName}}</td>
             <td>{{student.athlete.lastName}}</td>
             <td>{{student.athlete.address}}</td>
             <td>{{student.athlete.city}}</td>
-            <td>{{student.athlete.email}}</td>
+            <td> <a ng-href="https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;tf=1&amp;to={{student.athlete.email}}&amp;su=Hello from Coach&amp;shva=1" target="_blank">{{student.athlete.email}}</a></td>
             <td>{{student.athlete.phoneNumber}}</td>
             <td>{{student.athlete.dob | date:"MM/dd/yyyy"}}</td>
             <td>{{student.athlete.gender}}</td>
+            <td>
+              <button type="button" ng-click="view(student.$id)" class="btn btn-default btn-xs btn-info">View</button>
+            </td>
             <td>
               <button type="button" ng-click="edit(student.$id)" class="btn btn-default btn-xs btn-success">Edit</button>
             </td>
